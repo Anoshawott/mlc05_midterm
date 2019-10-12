@@ -1,0 +1,23 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+	  Welcome, {{ name }}!
+		{% if not paid %}
+
+		<div>
+		<h2>Buy access for $1.00</h2>
+		<form action="/charge"
+			method="post">
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ key }}" data-description="Surf Conditions Charge" data-amount="100" data-locale="auto"> </script>
+			</form>
+		</div>
+{% else %}
+<p>Display image + tag</p>
+		{% endif %}
+
+</h1>
+
+{% endblock %}
